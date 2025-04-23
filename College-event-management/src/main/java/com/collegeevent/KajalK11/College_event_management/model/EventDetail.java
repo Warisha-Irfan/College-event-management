@@ -1,34 +1,14 @@
 package com.collegeevent.KajalK11.College_event_management.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import org.springframework.data.annotation.Id;
-
 import java.util.Objects;
 
 public class EventDetail {
-
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-@Column(name = "id")
-private Long id;
-
-    @Column(name = "event_id", nullable = false)
+    private Long id;
     private Long eventId;
-
-    @Column(name = "agenda", length = 255)
     private String agenda;
-
-    @Column(name = "speaker", length = 100)
     private String speaker;
-
-    @Column(name = "venue", length = 100)
     private String venue;
-
-    @Column(name = "contact_info", length = 100)
     private String contactInfo;
-
 
     //empty constructor
     public EventDetail() {
