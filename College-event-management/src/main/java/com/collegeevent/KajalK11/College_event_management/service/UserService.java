@@ -2,6 +2,7 @@ package com.collegeevent.KajalK11.College_event_management.service;
 
 
 import com.collegeevent.KajalK11.College_event_management.model.User;
+import com.collegeevent.KajalK11.College_event_management.repository.UserImple;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,38 +12,38 @@ import java.util.Optional;
 @Service
 public class UserService {
     @Autowired
-    private final UserRepository userRepository;
+    private final UserImple userImple;
 
     public User login(String email, String password) {
-        return userRepository.findByEmailAndPassword(email, password);
+        return userImple.findByEmailAndPassword(email, password);
     }
 
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public UserService(UserImple userImple) {
+        this.userImple = userImple;
     }
     public User createUser(User user){
-        return userRepository.save(user);
+        return userImple.save(user);
     }
     public User getUserById(Long id){
-        return  userRepository.findById(id).orElse(null);
+        return  userImple.findById(id).orElse(null);
     }
     public List<User> getAllUsers(){
-        return userRepository.findAll();
+        return userImple.findAll();
     }
 
     public void  deleteUser(Long id){
-        userRepository.deleteById(id);
+        userImple.deleteById(id);
     }
 
     public User updateUser(Long id, User updatedUser){
-        Optional<User> userOptional = userRepository.findById(id);
+        Optional<User> userOptional = userImple.findById(id);
         if(userOptional.isPresent()) {
             User user = userOptional.get();
             user.setName(updatedUser.getName());
             user.setEmail(updatedUser.getEmail());
             user.setPassword(updatedUser.getPassword());
             user.setRole(updatedUser.getRole());
-            return userRepository.save(user);
+            return userImple.save(user);
         }
         return null;
 
