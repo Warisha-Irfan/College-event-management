@@ -1,3 +1,4 @@
+/* CSS for Login*/
 body {
     margin: 0;
     padding: 0;
@@ -210,3 +211,134 @@ body {
     box-shadow: 0 0 20px #ffd3f1, 0 0 35px #af4261;
   }
 }
+
+/* CSS for Faculty dashboard*/
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f0f2f5;
+    color: #2c3e50;
+    line-height: 1.6;
+}
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+/* Headings */
+h2 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #34495e;
+}
+
+h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+/* Section Layout */
+.section {
+    background: #ffffff;
+    margin-bottom: 40px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+.section:hover {
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* Card Styles */
+.card {
+    background: #f9f9f9;
+    border-left: 5px solid #3498db;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    background: #f1f9ff;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #2980b9;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #2471a3;
+}
+
+.btn-reject {
+    background-color: #e74c3c;
+}
+
+.btn-reject:hover {
+    background-color: #c0392b;
+}
+
+/* List Styles */
+ul.notifications,
+ul.venues,
+ul.reports {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul.notifications li,
+ul.venues li,
+ul.reports li {
+    background-color: #fafafa;
+    padding: 15px;
+    border-left: 4px solid #2ecc71;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .btn {
+        display: block;
+        margin-bottom: 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    .dashboard-container {
+        padding: 20px 10px;
+    }
+}
+
