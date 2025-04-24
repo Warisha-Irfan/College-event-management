@@ -13,17 +13,37 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class AuthController {
 
     @Autowired
-    private UserImple userRepository;
+    private UserImple userImple;
 
     @GetMapping("/login")
-    public String loginPage(){
+    public String loginPage() {
         return "login";
     }
 
     public String loginUser(@RequestParam String email,
                             @RequestParam String password,
                             HttpSession session,
-                            Model model){
-        User user   = userRepository.findByEmailAndPassword(email, password)
+                            Model model) {
+        User user = userImple.findByEmailAndPassword(email, password);
+
+        if (user != null) {
+            session.setAttribute("CurrentUser", user);
+            switch (user.getRole().toUpperCase()) {
+                case "STUDENT":
+                    return "redirect:/student/dashboard";
+                case "FACULTY":
+                    return "redirect:/faculty/dashboard";
+                case "ADMIN":
+                    return "redirect:/admin/dashboard";
+                default:
+                    model.addAttribute("error", "Invaild role.");
+                    return "login";
+
+            }
+        } else {
+            model.addAttribute("error", "Invalid email or password.");
+            return "login";
+        }
     }
 }
+
