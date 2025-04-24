@@ -109,3 +109,104 @@ body {
         background-color: #89f7fe;
     }
 }
+
+
+/* === Event Type Selection Section === */
+
+/* === Event Type Selection Section === */
+
+.event-section {
+  text-align: center;
+  background-color: #ffffffee;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: fadeInPop 0.8s ease;
+  margin: 40px auto;
+  max-width: 800px;
+}
+
+.event-section h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.event-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+}
+
+/* Animation delay for each card */
+.event-card:nth-child(1) {
+  animation: fadeInCard 0.7s ease 0.2s forwards;
+}
+.event-card:nth-child(2) {
+  animation: fadeInCard 0.7s ease 0.4s forwards;
+}
+.event-card:nth-child(3) {
+  animation: fadeInCard 0.7s ease 0.6s forwards;
+}
+.event-card:nth-child(4) {
+  animation: fadeInCard 0.7s ease 0.8s forwards;
+}
+
+/* Start hidden */
+.event-card {
+  opacity: 0;
+  transform: translateY(20px);
+  background: linear-gradient(145deg, #f3ec78, #af4261);
+  color: white;
+  padding: 20px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-weight: 600;
+  font-size: 18px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Glowing hover + pulse */
+.event-card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 15px #ff93dc, 0 0 30px #af4261;
+  animation: pulse 0.6s ease infinite alternate;
+}
+
+/* Card pop-in animation */
+@keyframes fadeInCard {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Section fade animation */
+@keyframes fadeInPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Subtle glowing pulse */
+@keyframes pulse {
+  from {
+    transform: scale(1.08);
+    box-shadow: 0 0 15px #ff93dc, 0 0 30px #af4261;
+  }
+  to {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #ffd3f1, 0 0 35px #af4261;
+  }
+}
