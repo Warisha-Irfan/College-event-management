@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Dashboard</title>
+  <link rel="stylesheet" href="/static/css/student-style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="dashboard-container">
+  <header>
+    <h2>🎓 Welcome, <span th:text="${studentName}"></span></h2>
+    <a href="/student/add-event" class="add-button">+ Submit Event Proposal</a>
+  </header>
+
+  <section class="notification" th:if="${notificationMessage}">
+    <p th:text="${notificationMessage}"></p>
+  </section>
+
+  <section class="section">
+    <h3>📋 My Proposals</h3>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+        <tr>
+          <th>Title</th><th>Type</th><th>Date</th><th>Status</th><th>Coordinator</th><th>Actions</th>
+        </tr>
+        </thead>
+        <tbody th:each="event : ${submittedEvents}">
+        <tr>
+          <td th:text="${event.title}"></td>
+          <td th:text="${event.type}"></td>
+          <td th:text="${event.dateTime}"></td>
+          <td th:text="${event.status}"></td>
+          <td th:text="${event.coordinatorName}"></td>
+          <td>
+            <a th:href="@{'/student/event/' + ${event.id}}">View</a>
+            <a th:if="${event.status == 'Pending'}" th:href="@{'/student/edit-event/' + ${event.id}}">Edit</a>
+            <a th:if="${event.status == 'Pending'}" th:href="@{'/student/delete-event/' + ${event.id}}">Delete</a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <h3>🎯 Listed Events</h3>
+    <div class="filters">
+      <select><option>All Types</option><option>Workshop</option><option>Seminar</option><option>Fest</option></select>
+      <select><option>All Departments</option><option>CSE</option><option>ECE</option><option>ME</option></select>
+      <input type="date" />
+    </div>
+    <ul class="event-list" th:each="event : ${allEvents}">
+      <li>
+        <strong th:text="${event.title}"></strong> <span th:text="' | ' + ${event.type}"></span><br>
+        <small>Description: <span th:text="${event.description}"></span></small><br>
+        <span>Speaker: <b th:text="${event.speaker}"></b></span> | Volunteers: <b th:text="${event.volunteers}"></b><br>
+        <a class="view-btn" th:href="@{'/student/event-details/' + ${event.id}}">More Info</a>
+      </li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h3>📈 Past Events & Feedback</h3>
+    <ul class="report-list" th:each="report : ${pastEvents}">
+      <li>
+        <span th:text="'Event: ' + ${report.title} + ' | Status: ' + ${report.status}"></span>
+        <a class="view-btn" th:href="@{'/student/report/' + ${report.id}}">Report</a>
+        <a class="feedback-btn" th:if="${report.status == 'Attended'}" th:href="@{'/student/feedback/' + ${report.id}}">Give Feedback</a>
+      </li>
+    </ul>
+  </section>
+</div>
+</body>
+</html>

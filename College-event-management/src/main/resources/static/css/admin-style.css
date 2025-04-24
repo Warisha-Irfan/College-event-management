@@ -1,0 +1,138 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #eef2f7;
+  color: #333;
+}
+
+.dashboard-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px 20px;
+}
+
+header h2 {
+  text-align: center;
+  color: #002B5B;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.section {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.section h3 {
+  color: #1a1a1a;
+  margin-bottom: 15px;
+  border-left: 5px solid #3F72AF;
+  padding-left: 10px;
+}
+
+/* Tables */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background: #3F72AF;
+  color: #fff;
+}
+
+tr:hover {
+  background: #f5f7ff;
+}
+
+/* Actions & Filters */
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.actions a {
+  background: #3F72AF;
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+  font-weight: 500;
+}
+
+.actions a:hover {
+  background: #305a8d;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.filters select,
+.filters input[type="date"] {
+  padding: 8px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+}
+
+/* Event List */
+.event-list {
+  list-style: none;
+  padding: 0;
+}
+
+.event-list li {
+  padding: 10px;
+  background: #fefefe;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 8px;
+  border-radius: 8px;
+}
+
+/* Stats */
+.mini-stats {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.mini-stats li {
+  background: #e3ecff;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #003566;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .filters,
+  .actions {
+    flex-direction: column;
+  }
+
+  table, th, td {
+    font-size: 14px;
+  }
+}

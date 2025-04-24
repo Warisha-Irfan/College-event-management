@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Faculty Dashboard</title>
+    <link rel="stylesheet" href="/static/css/faculty-style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="dashboard-container">
+    <header>
+        <h2>🎓 Faculty Dashboard</h2>
+    </header>
+
+    <section class="section">
+        <h3>📥 Manage Student Submissions</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                <tr>
+                    <th>Title</th><th>Student</th><th>Status</th><th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>AI Seminar</td>
+                    <td>Kajal</td>
+                    <td>Pending</td>
+                    <td>
+                        <a href="#">Approve</a> |
+                        <a href="#">Reject</a> |
+                        <a href="#">Edit</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="section">
+        <h3>🗂 Add/Edit/Delete Events</h3>
+        <div class="actions">
+            <a href="#">➕ Add Departmental Event</a>
+            <a href="#">✏️ Edit Approved Event</a>
+            <a href="#">🗑️ Delete Event</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <h3>💰 Finance & Venue Management</h3>
+        <div class="actions">
+            <a href="#">📤 Upload Budget</a>
+            <a href="#">📅 Check Venue Availability</a>
+            <a href="#">✏️ Request Venue Change</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <h3>📅 Event Listings</h3>
+        <div class="filters">
+            <select><option>All Types</option><option>Seminar</option><option>Workshop</option></select>
+            <select><option>Status</option><option>Pending</option><option>Approved</option></select>
+            <input type="date" />
+        </div>
+        <ul class="event-list">
+            <li>
+                <strong>ML Workshop</strong><br>
+                <small>Type: Workshop | Status: Approved | Date: 2025-04-30</small>
+            </li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <h3>📊 Generate Reports</h3>
+        <div class="actions">
+            <a href="#">📈 Participation Report</a>
+            <a href="#">📉 Budget Report</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <h3>📝 Feedback Summary</h3>
+        <div class="actions">
+            <a href="#">🔍 View Feedback Summary</a>
+        </div>
+    </section>
+</div>
+</body>
+</html>

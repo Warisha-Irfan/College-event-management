@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/static/css/admin-style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="dashboard-container">
+    <header>
+        <h2>🛠️ Admin Dashboard</h2>
+    </header>
+
+    <section class="section">
+        <h3>✅ Approve Faculty-Validated Events</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                <tr><th>Event</th><th>Department</th><th>Status</th><th>Actions</th></tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>TechFest</td>
+                    <td>Computer Science</td>
+                    <td>Awaiting Admin Approval</td>
+                    <td>
+                        <a href="#">Approve</a> |
+                        <a href="#">Send Back</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="section">
+        <h3>📁 Add/Edit/Delete All Events</h3>
+        <div class="actions">
+            <a href="#">➕ Add Event</a>
+            <a href="#">✏️ Edit Event</a>
+            <a href="#">🗑️ Delete Event</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <h3>📋 System-wide Event Overview</h3>
+        <div class="filters">
+            <select><option>All Types</option></select>
+            <select><option>All Departments</option></select>
+            <input type="date" />
+        </div>
+        <ul class="event-list">
+            <li><strong>Hackathon</strong><br><small>Type: Coding | Dept: IT | Date: 2025-05-02</small></li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <h3>👤 User Management</h3>
+        <div class="actions">
+            <a href="#">Add User</a>
+            <a href="#">Edit User</a>
+            <a href="#">Delete User</a>
+            <a href="#">Manage Roles</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <h3>💹 Financial Reports Dashboard</h3>
+        <ul class="mini-stats">
+            <li>Total Budget: ₹ 10,00,000</li>
+            <li>Utilized: ₹ 7,80,000</li>
+            <li>Remaining: ₹ 2,20,000</li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <h3>🏫 Venue Management</h3>
+        <div class="actions">
+            <a href="#">View Bookings</a>
+            <a href="#">Manage Requests</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <h3>📢 Announcements & Alerts</h3>
+        <div class="actions">
+            <a href="#">Send Announcement</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <h3>📁 View & Export Reports</h3>
+        <div class="actions">
+            <a href="#">📄 Export PDF</a>
+            <a href="#">📊 Export CSV</a>
+        </div>
+    </section>
+</div>
+</body>
+</html>
