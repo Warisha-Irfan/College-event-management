@@ -16,6 +16,6 @@ import java.util.function.Function;
 @Repository
 public interface UserImple extends  JpaRepository<User, Long> {
 
-    User findByEmailAndPassword(String email, String password);
+    User findByEmailAndPasswordAndRole(String email, String password,String role);
 
 }
