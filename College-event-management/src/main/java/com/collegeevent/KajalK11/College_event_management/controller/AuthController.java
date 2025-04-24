@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -19,15 +20,17 @@ public class AuthController {
     public String loginPage() {
         return "login";
     }
-
+@PostMapping("/login")
     public String loginUser(@RequestParam String email,
                             @RequestParam String password,
+                            @RequestParam String role,
                             HttpSession session,
                             Model model) {
-        User user = userImple.findByEmailAndPassword(email, password);
+        User user = userImple.findByEmailAndPasswordAndRole(email, password,role);
 
         if (user != null) {
             session.setAttribute("CurrentUser", user);
+
             switch (user.getRole().toUpperCase()) {
                 case "STUDENT":
                     return "redirect:/student/dashboard";
