@@ -2,7 +2,7 @@ package com.collegeevent.KajalK11.College_event_management.service;
 
 
 import com.collegeevent.KajalK11.College_event_management.model.User;
-import com.collegeevent.KajalK11.College_event_management.repository.UserImple;
+import com.collegeevent.KajalK11.College_event_management.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,38 +12,38 @@ import java.util.Optional;
 @Service
 public class UserService {
     @Autowired
-    private final UserImple userImple;
+    private final UserRepository userRepository;
 
     public User login(String email, String password,String role) {
-        return userImple.findByEmailAndPasswordAndRole(email, password,role);
+        return userRepository.findByEmailAndPasswordAndRole(email, password,role);
     }
 
-    public UserService(UserImple userImple) {
-        this.userImple = userImple;
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
     public User createUser(User user){
-        return userImple.save(user);
+        return userRepository.save(user);
     }
     public User getUserById(Long id){
-        return  userImple.findById(id).orElse(null);
+        return  userRepository.findById(id).orElse(null);
     }
     public List<User> getAllUsers(){
-        return userImple.findAll();
+        return userRepository.findAll();
     }
 
     public void  deleteUser(Long id){
-        userImple.deleteById(id);
+        userRepository.deleteById(id);
     }
 
     public User updateUser(Long id, User updatedUser){
-        Optional<User> userOptional = userImple.findById(id);
+        Optional<User> userOptional = userRepository.findById(id);
         if(userOptional.isPresent()) {
             User user = userOptional.get();
             user.setName(updatedUser.getName());
             user.setEmail(updatedUser.getEmail());
             user.setPassword(updatedUser.getPassword());
             user.setRole(updatedUser.getRole());
-            return userImple.save(user);
+            return userRepository.save(user);
         }
         return null;
 

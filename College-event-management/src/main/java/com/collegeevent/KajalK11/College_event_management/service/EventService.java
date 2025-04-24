@@ -133,4 +133,13 @@ public class EventService {
             throw new EventValidationException("Valid event date is required");
         }
     }
+
+    public void approveEvent(Long id) {
+    }
+
+    public void rejectEvent(Long id) {
+    }
+
+    public List<Event> getAll() {
+    }
 }

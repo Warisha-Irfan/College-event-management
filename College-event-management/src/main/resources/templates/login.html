@@ -9,7 +9,9 @@
 <div class="login-container">
     <h2 class="title">Login </h2>
 
-    <form th:action="@{/login}" method="post" class="login-form">
+    <form th:action="/login" method="post" class="login-form">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
         <label>Email</label>
         <input type="email" name="email" required placeholder="Enter your email">
 
@@ -19,9 +21,9 @@
         <label>Role</label>
         <select name="role" required>
             <option value="" disabled selected>Select Role</option>
-            <option value="Admin">Admin</option>
-            <option value="Faculty">Faculty</option>
-            <option value="Student">Student</option>
+            <option value="ADMIN">ADMIN</option>
+            <option value="FACULTY">FACULTY</option>
+            <option value="STUDENT">STUDENT</option>
         </select>
 
         <div class="button-group">
