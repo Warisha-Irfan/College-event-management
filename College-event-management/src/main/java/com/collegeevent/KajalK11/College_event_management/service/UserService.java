@@ -14,8 +14,8 @@ public class UserService {
     @Autowired
     private final UserImple userImple;
 
-    public User login(String email, String password) {
-        return userImple.findByEmailAndPassword(email, password);
+    public User login(String email, String password,String role) {
+        return userImple.findByEmailAndPasswordAndRole(email, password,role);
     }
 
     public UserService(UserImple userImple) {
